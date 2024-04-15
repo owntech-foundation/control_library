@@ -43,7 +43,7 @@ Remind that the `loop_critical_task()` is called every 100µs.
 pll_datas = pll.calculateWithReturn(signal_to_track);
 ```
 
-`pll_datas` is a [structure](structPllDatas.md) which kept the results of the PllSinus calculation for one step.
+`pll_datas` is a [structure](../../structPllDatas) which kept the results of the PllSinus calculation for one step.
 
 the PllData structure has 3 fields:
 ```c++

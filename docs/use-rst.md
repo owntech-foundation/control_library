@@ -29,7 +29,7 @@ static float32_t lower_bound = -1.0F;
 static float32_t Ts = 100.0e-6F;
 ```
 
-We define the parameter structure. Each parameter is defined [here](structRstParams.md).
+We define the parameter structure. Each parameter is defined [here](../../structRstParams).
 ```c++
 static RstParams params = RstParams(Ts, nr, R, ns, S, nt, T, lower_bound, upper_bound);
 ```

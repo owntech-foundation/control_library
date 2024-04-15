@@ -27,7 +27,7 @@ The use of the `Pid` is based on **3 steps**.
 2. Pid initialisation.
 3. Pid execution.
 
-## 1. Pid object and parameters instanciation.
+## 1. `Pid` object and parameters instanciation.
 
 For each _`Controller`_ like (`Pid`, `Rst`, `Pr`) we have to define a parameter structure.
 
@@ -43,7 +43,7 @@ static float32_t lower_bound = 0.0F;
 static float32_t Ts = 100.0e-6F;
 ```
 
-We define the parameter structure. Each parameter is defined [here](structPidParams.md).
+We define the parameter structure. Each parameter is defined [here](../../structPidParams).
 ```c++
 static PidParams pid_params(Ts, kp, Ti, Td, N, lower_bound, upper_bound);
 ```
@@ -54,7 +54,7 @@ We define the variable `pid` which is a `Pid` object.
 static Pid pid;
 ```
 
-## 2. Pid initialization.
+## 2. `Pid` initialization.
 In the **`setup_routine()`** of the OwnTech Power API,
 you must initialize the `Pid` with its parameters.
 
@@ -62,7 +62,7 @@ you must initialize the `Pid` with its parameters.
 pid.init(pid_params);
 ```
 
-## 3. Pid execution.
+## 3. `Pid` execution.
 In the **`loop_critical_task()`** you can call the method `calculateWithReturn()`
 which have two arguments: 
 

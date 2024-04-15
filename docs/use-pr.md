@@ -23,7 +23,7 @@ static float32_t lower_bound = -1.0F;
 static float32_t Ts = 100.0e-6F;
 ```
 
-We define the parameter structure. Each parameter is defined [here](structPrParams.md).
+We define the parameter structure. Each parameter is defined [here](../../structPrParams).
 ```c++
 static  PrParams params = PrParams(Ts, Kp, Kr, w0, phase_shift, lower_bound, upper_bound);
 ```
