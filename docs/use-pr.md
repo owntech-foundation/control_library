@@ -36,7 +36,27 @@ Where:
     But calculation are sampled.
     [Relationship to Laplace transform](https://en.wikipedia.org/wiki/Z-transform#Relationship_to_Laplace_transform)
 
-## Use Proportionnal Resonant `Controller`.
+### Discretization:
+
+$$ 
+\begin{align}
+res_k &= b_0.\epsilon_k + b_1.\epsilon_{k-1} - a_1.res_{k-1} - a_2.res_{k-2} \\ \\
+u_k &= K_p . \epsilon_k + K_r .res_k
+\end{align}
+$$
+
+With:
+
+$$
+\begin{align}
+a_1 &= -2.\cos(T_s . \omega_0)\\
+a_2 &= 1.0\\
+b_0 &= T_s . \cos(\phi')\\
+b_1 &= -T_s . \cos(\phi' - T_s . \omega_0)\\
+\end{align}
+$$
+
+## Use of the Proportionnal Resonant `Controller`.
 
 The use of the `Pr` is based on **3 steps**.
 
@@ -44,7 +64,7 @@ The use of the `Pr` is based on **3 steps**.
 2. `Pr` initialisation.
 3. `Pr` execution.
 
-## 1. `Pr` object and parameters instanciation.
+### 1. `Pr` object and parameters instanciation.
 
 For each _`Controller`_ like (`Pid`, `Rst`, `Pr`) we have to define a parameter structure.
 
@@ -72,7 +92,7 @@ We define the variable `prop_res` which is a `Pr` object.
 static Pr prop_res;
 ```
 
-## 2. `Pr` initialization.
+### 2. `Pr` initialization.
 In the **`setup_routine()`** of the OwnTech Power API,
 you must initialize the `Pr` with its parameters.
 
@@ -80,14 +100,16 @@ you must initialize the `Pr` with its parameters.
 prop_res.init(params);
 ```
 
-## 3. `Pr` execution.
+### 3. `Pr` execution.
 In the **`loop_critical_task()`** you can call the method `calculateWithReturn()`
 which have two arguments: 
 
 1. the reference
 2. the measure.
 
-Remind that the `loop_critical_task()` is called every 100µs.
+!!! note
+    Remind that the `loop_critical_task()` is called at the sampling time you define and
+    must be equal to $T_s$.
 
 ```
 new_command = prop_res.calculateWithReturn(reference, measurement);

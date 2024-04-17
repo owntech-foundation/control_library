@@ -73,7 +73,8 @@ which have two arguments:
 2. the measure.
 
 !!! note
-    Remind that the `loop_critical_task()` is called every 100µs, in our examples.
+    Remind that the `loop_critical_task()` is called at the sampling time you define and
+    must be equal to $T_s$.
 
 ```
 new_command = pid.calculateWithReturn(reference, measurement);

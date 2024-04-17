@@ -1,10 +1,11 @@
 # Use First Order Low Pass Filter
 
+## Introduction.
 
 ![first order filter bode plot](images/first_order_filter-light.svg#only-light){ align=center style="border-radius: 5px;" loading=lazy}
 ![first order filter bode plot](images/first_order_filter-dark.svg#only-dark){ align=center style="border-radius: 5px;" loading=lazy}
 
-
+### Parameters
 Here, the transfer function representation of the first order filter (where $s$ is the
 Laplace variable) :  
 
@@ -18,6 +19,23 @@ Where:
     We show here the continuous transfer function of the function we want to implement.
     But calculation are sampled.
     [Relationship to Laplace transform](https://en.wikipedia.org/wiki/Z-transform#Relationship_to_Laplace_transform)
+
+### Discretization
+
+We give here the recurrence equation used to filter the $\text{input}$ signal.
+
+$$ 
+out_k = b_1 . \text{in}_k - a_1 . out_{k-1}
+$$
+
+where:
+
+$$
+\begin{align}
+a_1 &= -exp\left(-\dfrac{-Ts}{\tau}\right) \\ \\
+b_1 &= 1 + a_1
+\end{align}
+$$
 
 ## Use
 ### Declaration.
@@ -38,7 +56,9 @@ myfilter.reset();
 ### Execution.
 In the **`loop_critical_task()`** you can call the method `calculateWithReturn()`.
 
-Remind that the `loop_critical_task()` is called every 100µs.
+!!! note
+    Remind that the `loop_critical_task()` is called at the sampling time you define and
+    must be equal to $T_s$.
 ```cpp
 signal_filtered = myfilter.calculateWithReturn(signal_to_filter);
 ```

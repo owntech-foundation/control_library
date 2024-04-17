@@ -23,7 +23,7 @@ where:
 * $T(q^{-1}) = t_0 + t_1.q^{-1} + ... + t_{nt}.q^{-nt}$
 
 
-## Use of `RST()`
+## Use of the RST `Controller`.
 The use of the `RST is based on **3 steps**.
 
 1. `RST` object instanciation (declaration).
@@ -78,7 +78,9 @@ which have two arguments:
 1. the reference
 2. the measure.
 
-Remind that the `loop_critical_task()` is called every 100µs.
+!!! note
+    Remind that the `loop_critical_task()` is called at the sampling time you define and
+    must be equal to $T_s$.
 
 ```
 new_command = my_rst.calculateWithReturn(reference, measurement);

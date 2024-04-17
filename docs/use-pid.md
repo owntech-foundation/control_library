@@ -28,16 +28,30 @@ where:
     But calculation are sampled.
     [Relationship to Laplace transform](https://en.wikipedia.org/wiki/Z-transform#Relationship_to_Laplace_transform)
 
+### Discretization:
 This `Pid()` object is implemented using a **_backward euler integration method_**.
 
-## `Pid()` use.
+We have the following discrete equation implemented:
+
+$$ 
+\begin{align}
+\epsilon_k &=  y_{ref_{k}} - y_{meas_{k}} \\ \\ 
+i_k &= i_{k-1}  + T_s . \epsilon_k \\ \\
+d_k &= \dfrac{\epsilon_k - \epsilon_{k-1}}{T_s} \\ \\
+f_{d_k} &= (1 - e^{-T_s/\tau}) . d_k  + e^{-T_s/\tau} . f_{d_{k-1}}
+\end{align}
+$$
+
+$$ u_k = K_p .\left( \epsilon_k +  \dfrac{1}{T_i} . i_k + T_d . f_{d_k}\right) $$
+
+## Use of the PID `Controller`.
 The use of the `Pid` is based on **3 steps**.
 
 1. Pid object instanciation (declaration).
 2. Pid initialisation.
 3. Pid execution.
 
-## 1. `Pid` object and parameters instanciation.
+### 1. `Pid` object and parameters instanciation.
 
 For each _`Controller`_ like (`Pid`, `Rst`, `Pr`) we have to define a parameter structure.
 
@@ -64,7 +78,7 @@ We define the variable `pid` which is a `Pid` object.
 static Pid pid;
 ```
 
-## 2. `Pid` initialization.
+### 2. `Pid` initialization.
 In the **`setup_routine()`** of the OwnTech Power API,
 you must initialize the `Pid` with its parameters.
 
@@ -72,14 +86,16 @@ you must initialize the `Pid` with its parameters.
 pid.init(pid_params);
 ```
 
-## 3. `Pid` execution.
+### 3. `Pid` execution.
 In the **`loop_critical_task()`** you can call the method `calculateWithReturn()`
 which have two arguments: 
 
 1. the reference
 2. the measure.
 
-Remind that the `loop_critical_task()` is called every 100µs.
+!!! note
+    Remind that the `loop_critical_task()` is called at the sampling time you define and
+    must be equal to $T_s$.
 
 ```
 new_command = pid.calculateWithReturn(reference, measurement);
@@ -87,4 +103,5 @@ new_command = pid.calculateWithReturn(reference, measurement);
 
 `new_command` is the result of the pid calculation for one step.
 
+## Example
 
