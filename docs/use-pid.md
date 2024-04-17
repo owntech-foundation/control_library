@@ -1,29 +1,36 @@
-# Getting started
+# PID _`Controller`_.
+## Introduction.
+The PID :material-information-outline:{title="K. Astrom et T. Hagglund, Advanced PID Control."}
+ `Controller` is implemented here in a **Standard form**.
 
-Control library has been written in c++, the library is a set of object you can instanciate. 
-
-Each _`Controller`_ is in a different file (`pid.cpp, rst.cpp, pr.cpp`).
-
-It has mainly been developped to be used with 
-The [OwnTech Power API](https://github.com/owntech-foundation/Core) based on [Zephyr](https://www.zephyrproject.org/)
-and integrated with [PlatformIO](https://platformio.org/).
-
-## Installation
-
-_Control library_ has been designed to be integrated as a PlatformIO library.
-
-To use it, you need to add the line below in the `platformio.ini` file.
-
-!!!note "platformio.ini"
-
-    ```ini
-    lib_deps=
-        control_lib = https://github.com/owntech-foundation/control_library.git
-    ```
+<figure markdown="span">
+![pid block diagram](images/pid_diagram.svg){width=600}
+<figcaption>bloc diagram of standard form of a continuous PID with filtered derivative</figcaption>
+</figure>
 
 
-## Using the `Pid()` _`Controller`_.
+### Parameters:
+Here the continuous transfer function representation of the PID.
 
+$$command = K_p . \left( \varepsilon + \dfrac{1}{T_i.s} .  \varepsilon + \dfrac{T_d.s}{1 + \frac{T_d}{N}.s}.\varepsilon \right)$$
+
+where:
+
+* $K_p$ is the proportionnal gain
+* $T_i$ is the integration time
+* $T_d$ is derivative time
+* $N$ help to filter the derivative (typical values $\in [2, 20]$).
+
+
+
+!!! warning "controller are sampled"
+    We show here the continuous form of the function we want to implement.
+    But calculation are sampled.
+    [Relationship to Laplace transform](https://en.wikipedia.org/wiki/Z-transform#Relationship_to_Laplace_transform)
+
+This `Pid()` object is implemented using a **_backward euler integration method_**.
+
+## `Pid()` use.
 The use of the `Pid` is based on **3 steps**.
 
 1. Pid object instanciation (declaration).
@@ -79,4 +86,5 @@ new_command = pid.calculateWithReturn(reference, measurement);
 ```
 
 `new_command` is the result of the pid calculation for one step.
+
 
