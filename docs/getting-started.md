@@ -72,7 +72,8 @@ which have two arguments:
 1. the reference
 2. the measure.
 
-Remind that the `loop_critical_task()` is called every 100µs.
+!!! note
+    Remind that the `loop_critical_task()` is called every 100µs, in our examples.
 
 ```
 new_command = pid.calculateWithReturn(reference, measurement);
