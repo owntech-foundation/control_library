@@ -10,4 +10,3 @@ It has been thinking considering SISO (Single Input Single Output) and sample co
 
 If you want to implement a new controller type, you should consider to inherit from this
 class.
-

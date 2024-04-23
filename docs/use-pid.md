@@ -23,7 +23,7 @@ where:
 
 
 
-!!! warning "controller are sampled"
+=== warning "controller are sampled"
     We show here the continuous form of the function we want to implement.
     But calculation are sampled.
     [Relationship to Laplace transform](https://en.wikipedia.org/wiki/Z-transform#Relationship_to_Laplace_transform)
@@ -47,61 +47,63 @@ $$ u_k = K_p .\left( \epsilon_k +  \dfrac{1}{T_i} . i_k + T_d . f_{d_k}\right) $
 ## Use of the PID `Controller`.
 The use of the `Pid` is based on **3 steps**.
 
-1. Pid object instanciation (declaration).
-2. Pid initialisation.
-3. Pid execution.
+1. Object instanciation (declaration).
+2. Initialisation.
+3. Execution.
 
-### 1. `Pid` object and parameters instanciation.
+=== "1. Object and parameters instanciation."
 
-For each _`Controller`_ like (`Pid`, `Rst`, `Pr`) we have to define a parameter structure.
+    For each _`Controller`_ like (`Pid`, `Rst`, `Pr`) we have to define a parameter structure.
 
-We define constants used to initialize the parameter structure.
-```c++
-#include "pid.h"
+    We define constants used to initialize the parameter structure.
+    ```c++
+    #include "pid.h"
 
-static float32_t Ti = 7.5175e-5F;
-static float32_t Td = 0.0F;
-static float32_t N = 0.0F;
-static float32_t upper_bound = 1.0F;
-static float32_t lower_bound = 0.0F;
-static float32_t Ts = 100.0e-6F;
-```
+    static float32_t Ti = 7.5175e-5F;
+    static float32_t Td = 0.0F;
+    static float32_t N = 0.0F;
+    static float32_t upper_bound = 1.0F;
+    static float32_t lower_bound = 0.0F;
+    static float32_t Ts = 100.0e-6F;
+    ```
 
-We define the parameter structure. Each parameter is defined [here](../../structPidParams).
-```c++
-static PidParams pid_params(Ts, kp, Ti, Td, N, lower_bound, upper_bound);
-```
+    We define the parameter structure. Each parameter is defined [here](../../structPidParams).
+    ```c++
+    static PidParams pid_params(Ts, kp, Ti, Td, N, lower_bound, upper_bound);
+    ```
 
 
-We define the variable `pid` which is a `Pid` object.
-```c++
-static Pid pid;
-```
+    We define the variable `pid` which is a `Pid` object.
+    ```c++
+    static Pid pid;
+    ```
 
-### 2. `Pid` initialization.
-In the **`setup_routine()`** of the OwnTech Power API,
-you must initialize the `Pid` with its parameters.
+=== "2. Initialization."
+    In the **`setup_routine()`** of the OwnTech Power API,
+    you must initialize the `Pid` with its parameters.
 
-```c++
-pid.init(pid_params);
-```
+    ```c++
+    pid.init(pid_params);
+    ```
 
-### 3. `Pid` execution.
-In the **`loop_critical_task()`** you can call the method `calculateWithReturn()`
-which have two arguments: 
+=== "3. Execution."
+    In the **`loop_critical_task()`** you can call the method `calculateWithReturn()`
+    which have two arguments: 
 
-1. the reference
-2. the measure.
+    1. the reference
+    2. the measure.
 
-!!! note
-    Remind that the `loop_critical_task()` is called at the sampling time you define and
-    must be equal to $T_s$.
+    !!! note
+        Remind that the `loop_critical_task()` is called at the sampling time you define and
+        must be equal to $T_s$.
 
-```
-new_command = pid.calculateWithReturn(reference, measurement);
-```
+    ```
+    new_command = pid.calculateWithReturn(reference, measurement);
+    ```
 
-`new_command` is the result of the pid calculation for one step.
+    `new_command` is the result of the pid calculation for one step.
 
 ## Example
+You can find a _pid_ use with the [buck voltage mode example](../../../examples/TWIST/DC_AC/grid_following) which
+regulates a DC voltage.
 

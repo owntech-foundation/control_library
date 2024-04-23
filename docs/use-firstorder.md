@@ -38,29 +38,32 @@ b_1 &= 1 + a_1
 $$
 
 ## Use
-### Declaration.
-```cpp
-    const float32_t tau = 1e-3;               // constant time
-    const float32_t Ts = 100e-6;              // sampling time
-    myfilter = LowPassFirstOrderFilter(Ts, tau);
-```
 
-### Initialisation.
-Before to run, we advise to `reset` the filter, in the **`setup_routine()`** of the
-OwnTech Power API.
+=== "Declaration."
+    ```cpp
+        #include "filters.h"
 
-```
-myfilter.reset();
-```
+        const float32_t tau = 1e-3;               // constant time
+        const float32_t Ts = 100e-6;              // sampling time
+        myfilter = LowPassFirstOrderFilter(Ts, tau);
+    ```
 
-### Execution.
-In the **`loop_critical_task()`** you can call the method `calculateWithReturn()`.
+=== "Initialisation."
+    Before to run, we advise to `reset` the filter, in the **`setup_routine()`** of the
+    OwnTech Power API.
 
-!!! note
-    Remind that the `loop_critical_task()` is called at the sampling time you define and
-    must be equal to $T_s$.
-```cpp
-signal_filtered = myfilter.calculateWithReturn(signal_to_filter);
-```
+    ```
+    myfilter.reset();
+    ```
 
-It returns the data filtered.
+=== "Execution."
+    In the **`loop_critical_task()`** you can call the method `calculateWithReturn()`.
+
+    ```cpp
+    signal_filtered = myfilter.calculateWithReturn(signal_to_filter);
+    ```
+
+    It returns the data filtered.
+    !!! note
+        Remind that the `loop_critical_task()` is called at the sampling time you define and
+        must be equal to $T_s$.

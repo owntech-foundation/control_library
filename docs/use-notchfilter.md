@@ -34,31 +34,34 @@ a_2 &= 2 b_0 - 1
 $$
 
 ## Use of the `NotchFilter` object.
-### Declaration.
-```cpp
-    const float32_t f0 = 50.0;               // notch frequency [Hz]
-    const float32_t bandwidth = 5.0;         // notch bandwidth [Hz]
-    const float32_t Ts = 100e-6;              // sampling time [s]
-    myfilter = NotchFilter(Ts, f0, bandwidth);
-```
 
-### Initialisation.
-Before to run, we advise to `reset` the filter, in the **`setup_routine()`** of the
-OwnTech Power API.
+=== "Declaration."
+    ```cpp
+        #include "filters.h"
 
-```
-myfilter.reset();
-```
+        const float32_t f0 = 50.0;               // notch frequency [Hz]
+        const float32_t bandwidth = 5.0;         // notch bandwidth [Hz]
+        const float32_t Ts = 100e-6;              // sampling time [s]
+        myfilter = NotchFilter(Ts, f0, bandwidth);
+    ```
 
-### Execution.
-In the **`loop_critical_task()`** you can call the method `calculateWithReturn()`.
+=== "Initialisation."
+    Before to run, we advise to `reset` the filter, in the **`setup_routine()`** of the
+    OwnTech Power API.
 
-!!! note
-    Remind that the `loop_critical_task()` is called at the sampling time you define and
-    must be equal to $T_s$.
-```cpp
-signal_filtered = myfilter.calculateWithReturn(signal_to_filter);
-```
+    ```
+    myfilter.reset();
+    ```
 
-It returns the data filtered.
+=== "Execution."
+    In the **`loop_critical_task()`** you can call the method `calculateWithReturn()`.
 
+    ```cpp
+    signal_filtered = myfilter.calculateWithReturn(signal_to_filter);
+    ```
+
+    It returns the data filtered.
+
+    !!! note
+        Remind that the `loop_critical_task()` is called at the sampling time you define and
+        must be equal to $T_s$.

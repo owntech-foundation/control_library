@@ -64,7 +64,7 @@ The use of the `Pr` is based on **3 steps**.
 2. `Pr` initialisation.
 3. `Pr` execution.
 
-### 1. `Pr` object and parameters instanciation.
+=== "1. Object and parameters instanciation."
 
 For each _`Controller`_ like (`Pid`, `Rst`, `Pr`) we have to define a parameter structure.
 
@@ -92,7 +92,7 @@ We define the variable `prop_res` which is a `Pr` object.
 static Pr prop_res;
 ```
 
-### 2. `Pr` initialization.
+=== "2. Initialization."
 In the **`setup_routine()`** of the OwnTech Power API,
 you must initialize the `Pr` with its parameters.
 
@@ -100,16 +100,14 @@ you must initialize the `Pr` with its parameters.
 prop_res.init(params);
 ```
 
-### 3. `Pr` execution.
+=== "3. Ixecution."
 In the **`loop_critical_task()`** you can call the method `calculateWithReturn()`
 which have two arguments: 
 
 1. the reference
 2. the measure.
 
-!!! note
-    Remind that the `loop_critical_task()` is called at the sampling time you define and
-    must be equal to $T_s$.
+Remind that the `loop_critical_task()` is called every 100µs.
 
 ```
 new_command = prop_res.calculateWithReturn(reference, measurement);
@@ -117,3 +115,6 @@ new_command = prop_res.calculateWithReturn(reference, measurement);
 
 `new_command` is the result of the pr calculation for one step.
 
+## Example
+You can find the use with a [grid forming example](../../../examples/TWIST/DC_AC/grid_forming) which
+generate an AC voltage source.
