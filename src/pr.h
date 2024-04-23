@@ -20,7 +20,10 @@
 /**
  * @date 2024
  * @author Régis Ruelland <regis.ruelland@laas.fr>
+ * @author Ayoub Farah Hassan <ayoub.farah-hassan@laas.fr>
+ *
  */
+
 #include "controller.h"
 #include "fir.h"
 

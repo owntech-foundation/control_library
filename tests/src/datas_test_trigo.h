@@ -1,0 +1,93 @@
+#include <arm_math.h>
+const uint8_t ARRAY_SIZE = 20;
+
+const uint32_t random_angles[ARRAY_SIZE] = {
+    0xc1de4b92,
+    0xc2205cd2,
+    0x4111d363,
+    0x420956d2,
+    0xc23de22a,
+    0xc1690f3c,
+    0x4058a60e,
+    0xc1ad2976,
+    0x4002e9ac,
+    0xc20153a1,
+    0xc18c463b,
+    0xc23314d7,
+    0x3f1b52f5,
+    0x4215bc83,
+    0x4239d4be,
+    0xc240318e,
+    0xc189e8b9,
+    0xc1fe295c,
+    0xc23917be,
+    0x42291f6a
+};
+
+const uint32_t random_sin[ARRAY_SIZE] = {
+    0xbeefcd0b,
+    0xbf2e82d0,
+    0x3e9c844d,
+    0x3e6232d4,
+    0x3eae1baf,
+    0xbf68cbd9,
+    0xbe76edfb,
+    0xbead977f,
+    0x3f63b133,
+    0xbf4b0315,
+    0x3f77aff7,
+    0xbf357fe1,
+    0x3f11f7d6,
+    0xbe861b10,
+    0x3f1e31f3,
+    0x3f4c5ed4,
+    0x3f7fcb40,
+    0xbeb19d5b,
+    0xbf407250,
+    0xbf7dcffd
+};
+
+const uint32_t random_cos[ARRAY_SIZE] = {
+    0xbf622f7c,
+    0xbf3b4d3b,
+    0xbf73beb8,
+    0xbf79ad13,
+    0xbf70be6b,
+    0xbed4ff22,
+    0xbf787205,
+    0xbf70d647,
+    0xbeea0728,
+    0x3f1bf49b,
+    0x3e8169e5,
+    0x3f3489b2,
+    0x3f524ec3,
+    0x3f771005,
+    0xbf494590,
+    0xbf1a2bcd,
+    0xbd244f97,
+    0x3f701a44,
+    0xbf28d206,
+    0xbe05949c
+};
+
+const uint32_t random_modulo_2pi[ARRAY_SIZE] = {
+    0x406841fe,
+    0x407910db,
+    0x40352dd5,
+    0x403ace94,
+    0x4032db03,
+    0x40891119,
+    0x4058a60e,
+    0x405f3321,
+    0x4002e9ac,
+    0x40abc215,
+    0x3fa85a8d,
+    0x40afd81d,
+    0x3f1b52f5,
+    0x40c094d7,
+    0x401e6df2,
+    0x400de4c9,
+    0x3fce32b2,
+    0x40bdb9b1,
+    0x407f81c6,
+    0x40929c31};

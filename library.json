@@ -27,8 +27,10 @@
           "email": "ayoub.farah-hassan@laas.fr"
       }
     ],
-    "license": "LGPLV2.1",
+    "export" : 
+    {
+        "exclude": ["test*"]
+    },
+    "license": " LGPL-2.1-only",
     "homepage": "https://www.owntech.org/"
 }
-
-

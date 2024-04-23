@@ -35,7 +35,6 @@ LowPassFirstOrderFilter::LowPassFirstOrderFilter(float32_t Ts, float32_t tau) {
     this->init(Ts, tau);
 }
 
-
 uint8_t LowPassFirstOrderFilter::init(float32_t Ts, float32_t tau) {
     _Ts = Ts;
     _tau = tau;
@@ -63,6 +62,10 @@ float32_t LowPassFirstOrderFilter::calculateWithReturn(float32_t signal) {
 
 void LowPassFirstOrderFilter::reset() {
     _previous_value = 0.0F;
+}
+
+void LowPassFirstOrderFilter::reset(float32_t value) {
+    _previous_value = value;
 }
 
 

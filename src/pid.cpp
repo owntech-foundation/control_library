@@ -77,6 +77,7 @@ int8_t Pid::init(PidParams p) {
     _integral = 0.0;
     _previous_error = 0.0;
     _previous_f_deriv = 0.0;
+    _output = 0.0;
 
     LOG_DBG("_Ts = %f\n", _Ts);
     LOG_DBG("_Kp = %f\n", _Kp);

@@ -35,6 +35,7 @@ public:
     uint8_t init(float32_t Ts, float32_t tau);
     float32_t calculateWithReturn(float32_t signal);
     void reset();
+    void reset(float32_t value);
 private:
     float32_t _Ts;
     float32_t _tau;
