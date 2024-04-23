@@ -21,9 +21,7 @@ where:
 * $T_d$ is derivative time
 * $N$ help to filter the derivative (typical values $\in [2, 20]$).
 
-
-
-=== warning "controller are sampled"
+!!! warning "controller are sampled"
     We show here the continuous form of the function we want to implement.
     But calculation are sampled.
     [Relationship to Laplace transform](https://en.wikipedia.org/wiki/Z-transform#Relationship_to_Laplace_transform)
