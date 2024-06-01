@@ -21,6 +21,7 @@
  * @date 2024
  * @author Régis Ruelland <regis.ruelland@laas.fr>
  */
+
 #include <zephyr/logging/log.h>
 #include <errno.h>
 #include "pid.h"

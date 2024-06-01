@@ -21,6 +21,7 @@
  * @date 2024
  * @author Régis Ruelland <regis.ruelland@laas.fr>
  */
+
 #ifndef FIR_H_
 #define FIR_H_
 #include <arm_math.h>

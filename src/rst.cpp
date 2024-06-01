@@ -21,6 +21,7 @@
  * @date 2024
  * @author Régis Ruelland <regis.ruelland@laas.fr>
  */
+
 #include <errno.h>
 #include <zephyr/logging/log.h> 
 #include "rst.h"

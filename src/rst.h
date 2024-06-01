@@ -21,6 +21,7 @@
  * @date 2024
  * @author Régis Ruelland <regis.ruelland@laas.fr>
  */
+
 #ifndef RST_H_
 #define RST_H_
 #include "controller.h"
