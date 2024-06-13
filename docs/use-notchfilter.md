@@ -17,6 +17,18 @@ Where:
 * $\Delta f$ is the bandwidth of the filter.
 ### Discretization.
 
+Using the $z$-transform we get the following form:
+
+$$
+\begin{align}
+H(z^{-1}) = \dfrac{b_0 + b_1.z^{-1} + b_2.z^{-2}}{ a_0 + a_1.z^{-1}+ a_2.z^{-2}} \\ \\
+H(z) = \dfrac{b_0.z^2 + b_1.z^{1} + b_2}{ a_0.z^2 + a_1.z^{1}+ a_2} \\ \\
+\end{align}
+$$
+
+As there's a direct relation between $z^{-1}$ and $q^{-1}$ the delay operator, we can
+write the reccuring equations we will use in the code.
+
 $$
 out_k = b_0 . in_k + b_1 . in_{k-1} + b_2 . in_{k-2} - a_1 . out_{k-1} - a_2 . out_{k-2}.
 $$

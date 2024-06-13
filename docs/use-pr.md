@@ -38,6 +38,18 @@ Where:
 
 ### Discretization:
 
+Using the $z$-transform we get the following form:
+
+$$
+\begin{align}
+Pr(z^{-1}) = \left(K_p + K_r . \dfrac{b_0 + b_1.z^{-1}}{a_0+a_1.z^{-1}+ a_2.z^{-2}}\right) \\ \\
+Pr(z) = \left(K_p + K_r . \dfrac{b_0 .z^2 + b_1.z^1}{a_0.z^{2}+a_1.z^{1}+ a_2}\right)
+\end{align}
+$$
+
+As there's a direct relation between $z^{-1}$ and $q^{-1}$ the delay operator, we can
+write the reccuring equations we will use in the code.
+
 $$ 
 \begin{align}
 res_k &= b_0.\epsilon_k + b_1.\epsilon_{k-1} - a_1.res_{k-1} - a_2.res_{k-2} \\ \\

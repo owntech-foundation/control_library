@@ -21,6 +21,18 @@ Where:
     [Relationship to Laplace transform](https://en.wikipedia.org/wiki/Z-transform#Relationship_to_Laplace_transform)
 
 ### Discretization
+Using the $z$-transform we get the following form:
+
+$$
+\begin{align}
+H(z^{-1}) = \dfrac{b_1.z^{-1}}{1+a_1.z^{-1}} \\ \\
+H(z) = \dfrac{b_1}{z + a_1} \\
+\end{align}
+$$
+
+As there's a direct relation between $z^{-1}$ and $q^{-1}$ the delay operator, we can
+write the reccuring equations we will use in the code.
+
 
 We give here the recurrence equation used to filter the $\text{input}$ signal.
 
