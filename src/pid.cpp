@@ -80,11 +80,11 @@ int8_t Pid::init(PidParams p) {
     _previous_f_deriv = 0.0;
     _output = 0.0;
 
-    LOG_DBG("_Ts = %f\n", _Ts);
-    LOG_DBG("_Kp = %f\n", _Kp);
-    LOG_DBG("_Td = %f\n", _Td);
-    LOG_DBG("_Ti = %f\n", _Ti);
-    LOG_DBG("_N = %f\n", _N);
+    LOG_DBG("_Ts = %f\n", (double)_Ts);
+    LOG_DBG("_Kp = %f\n", (double)_Kp);
+    LOG_DBG("_Td = %f\n", (double)_Td);
+    LOG_DBG("_Ti = %f\n", (double)_Ti);
+    LOG_DBG("_N = %f\n", (double)_N);
 
     return 0;
 }

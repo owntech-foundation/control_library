@@ -50,7 +50,7 @@ uint8_t Fir::init(uint8_t nc, const float *coefficients) {
 
     for (uint8_t k=0; k < nc; k++) {
         this->coeffs[k] = coefficients[k];
-        LOG_DBG("coeffs[%d] = %f\n", k, this->coeffs[k]);
+        LOG_DBG("coeffs[%d] = %f\n", k, (double) this->coeffs[k]);
     }
     return 0;
 }
