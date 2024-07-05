@@ -14,13 +14,14 @@
  *   You should have received a copy of the GNU Lesser General Public License
  *   along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * SPDX-License-Identifier: LGLPV2.1
+ * SPDX-License-Identifier: LGPL-2.1
  */
 
 /**
  * @date 2024
  * @author Régis Ruelland <regis.ruelland@laas.fr>
  */
+
 #ifndef FIR_H_
 #define FIR_H_
 #include <arm_math.h>

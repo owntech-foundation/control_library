@@ -10,14 +10,36 @@ __Remarks__: The library is currently not optimized to make it easier to read (w
 
 ## Features
 
-The library provides the following functionalities mainly through C++ objects :
+The library provides the following functionalities mainly through C++ objects.
+
+### Controllers.
+
+Controllers provided are:
  * `Pid()`: Standard form of the PID regulator.
  * `Pr()`: Proportional Resonant regulator.
  * `Rst()`: Discrete form of Polynomial regulator.
+
+`Pid()`, `Pr()` and `Rst()` inherit from the `Controller()` class which define the same interface.
+
+### Filters
+
  * `PllSinus()`: Software PLL (Phased Lock Loop)
  * Digital filters: `LowPassFirstOrdreFilter()`, `NotchFilter()`
 
-`Pid()`, `Pr()` and `Rst()` inherit from the `Controller()` class which define the same interface.
+### Three phase system transformations.
+
+It provides also three phase system transformation through a `static` class : `Transform` from `transform.h` header. 
+* `Idqo = Transform::to_dqo(Iabc, angle);`
+* `Iabc = Transofrm::to_abc(Idqo, angle);`
+* `Iabo = Transform::clarke(Iabc);`
+* `Iabc = Transform::clarke_inverse(Iabo);`
+* `Idqo = Transform::rotation_to_dqo(Iabo, angle)`
+* `Iabo = Transform::rotation_to_clarke(Idqo, angle)`
+
+It includes also types:
+* `threephase_t`
+* `dqo_t`
+* `clarke_t`
 
 
 ## Installation
