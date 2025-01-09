@@ -8,10 +8,8 @@ It is included in the `filters.cpp` module.
 Digital implementation of the SOGI PLL is done using the `impulse invariant`:material-information-outline:{title="Alejandro Gómez Yepes, « Digital Resonant Current Controllers for Voltage Source Converters », 2011."}  using $$R_{1h}$$ discretization method.
 
 
-<fig>
 ![SOGI PLL block diagram](./images/sogi_pll.drawio){width=700px}
 <figcaption>block diagram of SOGI PLL</figcaption>
-</fig>
 
 ### Parameters:
 
@@ -24,10 +22,13 @@ Kr parameter augment SOGI PLL dynamic but decrease its selectivity.
 ### Retrieve Quadrature signal
 
 Following equations are expanded :
+
 $$cos(\theta_k) = cos(\theta_{k-1} +\omega.Ts)$$
+
 $$sin(\theta_k) = sin(\theta_{k-1} +\omega.Ts)$$
 
 Hence we derive the quadrature sinus term
+
 $$sin(\theta_k) = -\dfrac{cos(\omega . Ts)}{sin(\omega .Ts)}.cos(\theta_k) + \dfrac{1}{sin(\omega . Ts)}.cos(\theta_{k-1})$$
 
 
