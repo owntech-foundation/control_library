@@ -5,7 +5,7 @@
 The Second Order Generalized Integrator based PLL `SOGI-PLL`:material-information-outline:{title="Mihai Ciobotaru, Remus Teodorescu and Frede Blaabjerg, « A New Single-Phase PLL Structure Based on Second Order Generalized Integrator », 2006."} is a filter used to retrieve phase information from a mono phase or three phased system.
 It is included in the `filters.cpp` module.
 
-Digital implementation of the SOGI PLL is done using the `impulse invariant`:material-information-outline:{title="Alejandro Gómez Yepes, « Digital Resonant Current Controllers for Voltage Source Converters », 2011."}  using $$R_{1h}$$ discretization method.
+Digital implementation of the SOGI PLL is done using the `impulse invariant`:material-information-outline:{title="Alejandro Gómez Yepes, « Digital Resonant Current Controllers for Voltage Source Converters », 2011."}  using $R_{1h}$ discretization method.
 
 
 ![SOGI PLL block diagram](./images/sogi_pll.drawio){width=700px}
@@ -18,7 +18,7 @@ Digital implementation of the SOGI PLL is done using the `impulse invariant`:mat
 
 The SOGI PLL is discretized form is the following:
 
-$$R_{1hd} = Kr \times Ts \left(. \cos(\phi') . \dfrac{1- z^{-1}.cos(\omega .T_s)}{1 - 2.z^{-1}cos(\omega T_s)+z^{-2}} -sin(\phi').\dfrac{z^{-1}.sin(\omega .T_s)}{1 - 2.z^{-1}cos(\omega T_s)+z^{-2}}\right)$${width=700px}
+$R_{1hd} = Kr \times Ts \left(. \cos(\phi') . \dfrac{1- z^{-1}.cos(\omega .T_s)}{1 - 2.z^{-1}cos(\omega T_s)+z^{-2}} -sin(\phi').\dfrac{z^{-1}.sin(\omega .T_s)}{1 - 2.z^{-1}cos(\omega T_s)+z^{-2}}\right)${width=700px}
 
 Kr parameter augment SOGI PLL dynamic but decrease its selectivity.
 
