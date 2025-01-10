@@ -11,11 +11,14 @@ Digital implementation of the SOGI PLL is done using the `impulse invariant`:mat
 ![SOGI PLL block diagram](./images/sogi_pll.drawio){width=700px}
 <figcaption>block diagram of SOGI PLL</figcaption>
 
+ - `SOGI QSG` stands for Quadrature Signal Generator. It takes an input signal and output the signal in $$\alpha\beta$$ frame. This `QSG` is particularily useful for single phase systems where a simple Clark transform can not be used.
+ - `SRF PLL` stands for Synchronous Reference Frame Phase Lock Loop. It takes an input signal in the $$\alpha\beta$$ frame and retrieve the angle $$\theta$$ and the pulsation $$\omega$$
+
 ### Parameters:
 
 The SOGI PLL is discretized form is the following:
 
-$$R_{1hd} = Kr \times Ts \left(. \cos(\phi') . \dfrac{1- z^{-1}.cos(\omega .T_s)}{1 - 2.z^{-1}cos(\omega T_s)+z^{-2}} -sin(\phi').\dfrac{z^{-1}.sin(\omega .T_s)}{1 - 2.z^{-1}cos(\omega T_s)+z^{-2}}\right)$$
+$$R_{1hd} = Kr \times Ts \left(. \cos(\phi') . \dfrac{1- z^{-1}.cos(\omega .T_s)}{1 - 2.z^{-1}cos(\omega T_s)+z^{-2}} -sin(\phi').\dfrac{z^{-1}.sin(\omega .T_s)}{1 - 2.z^{-1}cos(\omega T_s)+z^{-2}}\right)$${width=700px}
 
 Kr parameter augment SOGI PLL dynamic but decrease its selectivity.
 
