@@ -1,0 +1,70 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.6 Chrome/138.0.7204.100 Electron/37.2.3 Safari/537.36" version="28.0.6">
+  <diagram name="Page-1" id="23X_S-7bvVMMthGJ0b9-">
+    <mxGraphModel dx="744" dy="1053" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;curved=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="Kb7TO7kUDxWt2ElsQjSF-1" target="Kb7TO7kUDxWt2ElsQjSF-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-14" value="T::to_dqo" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontFamily=Inconsolata;" vertex="1" connectable="0" parent="Kb7TO7kUDxWt2ElsQjSF-4">
+          <mxGeometry x="0.1929" y="-2" relative="1" as="geometry">
+            <mxPoint x="-27" y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;curved=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1" source="Kb7TO7kUDxWt2ElsQjSF-1" target="Kb7TO7kUDxWt2ElsQjSF-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-10" value="T::clarke" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Inconsolata;fontSize=12;" vertex="1" connectable="0" parent="Kb7TO7kUDxWt2ElsQjSF-5">
+          <mxGeometry x="0.3648" y="1" relative="1" as="geometry">
+            <mxPoint x="-16" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-1" value="&lt;div&gt;&lt;font face=&quot;Lato&quot;&gt;&lt;b&gt;Three-phase&lt;/b&gt; (abc)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;Lato&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;background-color: rgb(238, 238, 238); font-size: 13px;&quot; face=&quot;Inconsolata&quot;&gt;three_phase_t&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="160" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;curved=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1" source="Kb7TO7kUDxWt2ElsQjSF-2" target="Kb7TO7kUDxWt2ElsQjSF-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-11" value="T::clarke_inverse" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Inconsolata;fontSize=12;" vertex="1" connectable="0" parent="Kb7TO7kUDxWt2ElsQjSF-6">
+          <mxGeometry x="-0.5052" y="-1" relative="1" as="geometry">
+            <mxPoint x="-15" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;curved=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="Kb7TO7kUDxWt2ElsQjSF-2" target="Kb7TO7kUDxWt2ElsQjSF-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-12" value="T::rotation_to_dqo" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontFamily=Inconsolata;" vertex="1" connectable="0" parent="Kb7TO7kUDxWt2ElsQjSF-8">
+          <mxGeometry x="-0.4796" y="1" relative="1" as="geometry">
+            <mxPoint x="18" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-2" value="&lt;div&gt;&lt;font face=&quot;Lato&quot;&gt;&lt;b&gt;Clarke&lt;/b&gt; (αβ0)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;Lato&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;background-color: rgb(238, 238, 238);&quot; face=&quot;Inconsolata&quot;&gt;clarke_t&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="280" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;curved=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="Kb7TO7kUDxWt2ElsQjSF-3" target="Kb7TO7kUDxWt2ElsQjSF-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-16" value="T::to_threephase" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontFamily=Inconsolata;" vertex="1" connectable="0" parent="Kb7TO7kUDxWt2ElsQjSF-7">
+          <mxGeometry x="-0.0051" y="-1" relative="1" as="geometry">
+            <mxPoint x="-1" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;curved=0;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="Kb7TO7kUDxWt2ElsQjSF-3" target="Kb7TO7kUDxWt2ElsQjSF-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-13" value="T&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;::rotation_to_clarke&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontFamily=Inconsolata;" vertex="1" connectable="0" parent="Kb7TO7kUDxWt2ElsQjSF-9">
+          <mxGeometry x="0.2688" y="-3" relative="1" as="geometry">
+            <mxPoint x="-20" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-3" value="&lt;div&gt;&lt;font face=&quot;Lato&quot;&gt;&lt;b&gt;Park&lt;/b&gt; (dq0)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;Lato&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;background-color: rgb(238, 238, 238); font-size: 13px;&quot; face=&quot;Inconsolata&quot;&gt;dqo_t&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="160" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Kb7TO7kUDxWt2ElsQjSF-17" value="Remark 1: the&amp;nbsp;&lt;font style=&quot;font-size: 13px;&quot; face=&quot;Inconsolata&quot;&gt;&lt;span style=&quot;background-color: rgb(238, 238, 238);&quot;&gt;Transform::&lt;/span&gt; prefix&lt;/font&gt; is shortened as &lt;font style=&quot;font-size: 13px; background-color: rgb(238, 238, 238);&quot; face=&quot;Inconsolata&quot;&gt;T::&lt;/font&gt;&amp;nbsp; here only for space reason&lt;div&gt;Remark 2: all transforms to or from Park needs angle θ as 2nd parameter&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Lato;" vertex="1" parent="1">
+          <mxGeometry x="200" y="370" width="450" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
