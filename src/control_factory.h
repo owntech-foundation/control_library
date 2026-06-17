@@ -103,12 +103,23 @@ class ControlFactory {
     NotchFilter notchfilter(float32_t Ts, float32_t f0, float32_t bandwidth);
     /**
      * @brief low pass filter
-     * 
+     *
      * @param Ts sampling time [s]
      * @param tau constant time [s]
-     * @return LowPassFirstOrderFilter 
+     * @return LowPassFirstOrderFilter
      */
     LowPassFirstOrderFilter lowpassfilter(float32_t Ts, float32_t tau);
+
+    /**
+     * @brief Real-time amplitude estimator for a single harmonic using
+     *        synchronous demodulation. No trig calls at runtime.
+     *
+     * @param Ts          sampling time [s]
+     * @param w_harmonic  pulsation of the harmonic to detect [rad/s]
+     * @param tau         LPF time constant [s]; rule of thumb: 1/(pi*f0)
+     * @return HarmonicDetector
+     */
+    HarmonicDetector harmonicDetector(float32_t Ts, float32_t w_harmonic, float32_t tau);
 };
 
 extern ControlFactory controlLibFactory;

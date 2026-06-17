@@ -67,5 +67,10 @@ LowPassFirstOrderFilter  ControlFactory::lowpassfilter(float32_t Ts, float32_t t
     return filter;
 }
 
+HarmonicDetector ControlFactory::harmonicDetector(float32_t Ts, float32_t w_harmonic, float32_t tau) {
+    HarmonicDetector detector = HarmonicDetector(Ts, w_harmonic, tau);
+    return detector;
+}
+
 ControlFactory controlLibFactory = ControlFactory();
 

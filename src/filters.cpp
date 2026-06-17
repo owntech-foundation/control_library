@@ -23,6 +23,7 @@
  */
 
 #include <errno.h>
+#include <math.h>
 #include <zephyr/logging/log.h>
 #include "filters.h"
 LOG_MODULE_DECLARE(ot_control);
@@ -231,4 +232,50 @@ void PllAngle::_init_pi(float32_t rise_time) {
     _pi.init(pi_params);
 }
 
+/*** HarmonicDetector ********************************************************/
+
+HarmonicDetector::HarmonicDetector(float32_t Ts, float32_t w_harmonic, float32_t tau) {
+    this->init(Ts, w_harmonic, tau);
+}
+
+int8_t HarmonicDetector::init(float32_t Ts, float32_t w_harmonic, float32_t tau) {
+    float32_t wh_Ts = w_harmonic * Ts;
+    _cos_wh = ot_cos(wh_Ts);
+    _sin_wh = ot_sin(wh_Ts);
+    _two_cos_wh = 2.0f * _cos_wh;
+    _lpf_d.init(Ts, tau);
+    _lpf_q.init(Ts, tau);
+    reset();
+    return 0;
+}
+
+float32_t HarmonicDetector::calculateWithReturn(float32_t signal) {
+    // Advance the state-variable oscillator — no trig calls at runtime.
+    // Recurrence: x[n] = 2*cos(wh*Ts)*x[n-1] - x[n-2]
+    float32_t cos_next = _two_cos_wh * _cos_n - _cos_prev;
+    float32_t sin_next = _two_cos_wh * _sin_n - _sin_prev;
+    _cos_prev = _cos_n;
+    _sin_prev = _sin_n;
+    _cos_n = cos_next;
+    _sin_n = sin_next;
+
+    // Demodulate: mix with local oscillator then low-pass filter.
+    // DC component of d = (A/2)*cos(φ), q = -(A/2)*sin(φ)
+    float32_t d = _lpf_d.calculateWithReturn(signal * _cos_n);
+    float32_t q = _lpf_q.calculateWithReturn(signal * _sin_n);
+
+    return 2.0f * sqrtf(d * d + q * q);
+}
+
+void HarmonicDetector::reset() {
+    // Initial conditions so the oscillator starts at n=0:
+    //   _cos_n = cos(0) = 1,  _cos_prev = cos(-wh*Ts) = cos(wh*Ts)
+    //   _sin_n = sin(0) = 0,  _sin_prev = sin(-wh*Ts) = -sin(wh*Ts)
+    _cos_n    =  1.0f;
+    _cos_prev =  _cos_wh;
+    _sin_n    =  0.0f;
+    _sin_prev = -_sin_wh;
+    _lpf_d.reset();
+    _lpf_q.reset();
+}
 

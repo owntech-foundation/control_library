@@ -31,6 +31,7 @@
 
 class LowPassFirstOrderFilter {
 public:
+    LowPassFirstOrderFilter() = default;
     LowPassFirstOrderFilter(float32_t Ts, float32_t tau);
     int8_t init(float32_t Ts, float32_t tau);
     float32_t calculateWithReturn(float32_t signal);
@@ -154,5 +155,39 @@ protected:
     virtual void _init_pi(float32_t rise_time) override;
 };
 
+
+/**
+ * @class HarmonicDetector
+ * @brief Real-time amplitude estimator for a single harmonic using synchronous
+ *        demodulation. Per-sample cost: 4 multiplies + 2 LPF updates, no trig
+ *        calls after init.
+ *
+ * @param Ts          sample time [s]
+ * @param w_harmonic  pulsation of the harmonic to detect [rad/s]
+ * @param tau         LPF time constant [s]; rule of thumb: 1/(pi*f_fundamental)
+ */
+class HarmonicDetector {
+public:
+    HarmonicDetector() = default;
+    HarmonicDetector(float32_t Ts, float32_t w_harmonic, float32_t tau);
+    int8_t init(float32_t Ts, float32_t w_harmonic, float32_t tau);
+    /**
+     * @brief Feed one sample and return the estimated harmonic peak amplitude.
+     * @param signal  raw time-domain sample
+     * @return estimated peak amplitude [same unit as signal]
+     */
+    float32_t calculateWithReturn(float32_t signal);
+    void reset();
+private:
+    float32_t _cos_wh;      // cos(w_harmonic*Ts) — stored for reset
+    float32_t _sin_wh;      // sin(w_harmonic*Ts) — stored for reset
+    float32_t _two_cos_wh;  // 2*cos(w_harmonic*Ts) — recurrence coefficient
+    float32_t _cos_n;       // cos(n * w_harmonic * Ts), current step
+    float32_t _cos_prev;    // cos((n-1) * w_harmonic * Ts)
+    float32_t _sin_n;       // sin(n * w_harmonic * Ts), current step
+    float32_t _sin_prev;    // sin((n-1) * w_harmonic * Ts)
+    LowPassFirstOrderFilter _lpf_d;  // low-passes signal*cos (in-phase)
+    LowPassFirstOrderFilter _lpf_q;  // low-passes signal*sin (quadrature)
+};
 
 #endif
